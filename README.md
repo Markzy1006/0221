@@ -1,3 +1,9 @@
+[help(4).html](https://github.com/user-attachments/files/28863133/help.4.html)
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>注册协助服务</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -20,27 +26,6 @@
       font-weight: 300;
       min-height: 100vh;
     }
-
-    /* ── Header ── */
-    header {
-      border-bottom: 1px solid var(--border);
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky; top: 0;
-      background: rgba(13,17,23,.92);
-      backdrop-filter: blur(8px);
-      z-index: 10;
-    }
-    .logo { font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-    .logo span { color: var(--accent); }
-    nav a {
-      color: var(--muted); font-size: .88rem;
-      text-decoration: none; margin-left: 20px;
-      transition: color .2s;
-    }
-    nav a:hover, nav a.active { color: var(--text); }
 
     /* ── Hero ── */
     .page-hero {
@@ -136,9 +121,8 @@
     }
     .card-img {
       width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
       display: block;
+      object-fit: contain;
       background: #1e2a3d;
     }
     .card-body {
@@ -188,9 +172,6 @@
 </head>
 <body>
 
-    <a href="help.html" class="active">注册协助</a>
-  </nav>
-</header>
 
 <div class="page-hero">
   <h1>注册协助服务</h1>
@@ -200,7 +181,7 @@
     <div class="flow">
       <span class="flow-step">确认价格</span>
       <span class="arrow">→</span>
-      <span class="flow-step">联系博主-绿泡泡markzyanna</span>
+      <span class="flow-step wechat-btn" onclick="showWechat()" style="cursor:pointer;color:var(--accent);border:1px solid var(--accent);padding:4px 10px;border-radius:6px;">💬 联系博主</span>
       <span class="arrow">→</span>
       <span class="flow-step">确认可做</span>
       <span class="arrow">→</span>
@@ -231,9 +212,9 @@
 
 <script>
 const services = [
-  { name: "英国 giffgaff", sub: "实体/eSIM卡 · 空卡可帮充", price: "最低85元", tag: "电话卡", img: "https://gbport.com/wp-content/uploads/2026/05/giffgaff.jpg" },
-  { name: "美国嘉信理财", sub: "注册协助 · 不参与CRS", price: "350元", tag: "证券", img: "https://gbport.com/wp-content/uploads/2025/12/嘉信证券-2.jpg" },
-  { name: "美国第一证券", sub: "注册协助 · 不参与CRS", price: "350元", tag: "证券", img: "https://gbport.com/wp-content/uploads/2025/12/第一证券.jpg" },
+  { name: "英国 giffgaff", sub: "实体/eSIM卡 · 空卡可帮充", price: "最低80元", tag: "电话卡", img: "https://gbport.com/wp-content/uploads/2026/05/giffgaff.jpg" },
+  { name: "美国嘉信理财", sub: "注册协助 · 不参与CRS", price: "300元", tag: "证券", img: "https://gbport.com/wp-content/uploads/2025/12/嘉信证券-2.jpg" },
+  { name: "美国第一证券", sub: "注册协助 · 不参与CRS", price: "300元", tag: "证券", img: "https://gbport.com/wp-content/uploads/2025/12/第一证券.jpg" },
   { name: "香港胜利证券", sub: "Victory · 协助注册", price: "50元", tag: "证券", img: "https://gbport.com/wp-content/uploads/2025/12/胜利证券.jpg" },
   { name: "香港 Club SIM", sub: "实体/eSIM · 保号6港币/年", price: "最低100元", tag: "电话卡", img: "https://gbport.com/wp-content/uploads/2026/02/ScreenShot_2026-02-02_072732_246.jpg" },
   { name: "美国必贝证券", sub: "注册协助 · 不参与CRS", price: "50元", tag: "证券", img: "https://gbport.com/wp-content/uploads/2025/11/必贝.jpg" },
@@ -316,6 +297,37 @@ function filter(tag, btn) {
 // tag mapping for filter buttons
 const tagMap = { '证券': '证券', '银行': '银行', '加密': '加密', '电话卡': '电话卡', '钱包': '钱包', '文件': '文件' };
 render(services);
+</script>
+<!-- 微信弹窗 -->
+<div id="wechatModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;align-items:center;justify-content:center;">
+  <div style="background:#1a2233;border:1px solid #2d3a52;border-radius:16px;padding:32px 40px;text-align:center;max-width:320px;width:90%;position:relative;">
+    <button onclick="closeWechat()" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#8b949e;font-size:1.2rem;cursor:pointer;">✕</button>
+    <div style="font-size:2rem;margin-bottom:12px;">💬</div>
+    <p style="font-size:.85rem;color:#8b949e;margin-bottom:8px;">微信号</p>
+    <p style="font-size:1.3rem;font-weight:700;color:#4fc3f7;letter-spacing:.05em;margin-bottom:16px;">Markzyanna</p>
+    <button onclick="copyWechat()" id="copyBtn" style="background:#4fc3f7;color:#0d1117;border:none;border-radius:8px;padding:8px 24px;font-size:.88rem;font-weight:500;cursor:pointer;font-family:inherit;transition:background .2s;">复制微信号</button>
+  </div>
+</div>
+
+<script>
+function showWechat() {
+  const m = document.getElementById('wechatModal');
+  m.style.display = 'flex';
+}
+function closeWechat() {
+  document.getElementById('wechatModal').style.display = 'none';
+}
+function copyWechat() {
+  navigator.clipboard.writeText('Markzyanna').then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ 已复制';
+    btn.style.background = '#3fb950';
+    setTimeout(() => { btn.textContent = '复制微信号'; btn.style.background = '#4fc3f7'; }, 2000);
+  });
+}
+document.getElementById('wechatModal').addEventListener('click', function(e) {
+  if (e.target === this) closeWechat();
+});
 </script>
 </body>
 </html>
