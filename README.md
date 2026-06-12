@@ -188,10 +188,6 @@
 </head>
 <body>
 
-<header>
-  <a class="logo" href="index.html">你的<span>网站</span></a>
-  <nav>
-    <a href="index.html">首页</a>
     <a href="help.html" class="active">注册协助</a>
   </nav>
 </header>
@@ -204,7 +200,7 @@
     <div class="flow">
       <span class="flow-step">确认价格</span>
       <span class="arrow">→</span>
-      <span class="flow-step">联系博主</span>
+      <span class="flow-step">联系博主-绿泡泡markzyanna</span>
       <span class="arrow">→</span>
       <span class="flow-step">确认可做</span>
       <span class="arrow">→</span>
