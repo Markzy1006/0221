@@ -174,7 +174,7 @@
 <div class="page-hero">
   <h1>注册协助服务</h1>
   <div class="notice">
-    <p>① 对应服务价格标记在下方，确认好可接受的价格后，通过 <strong>淘宝 / 闲鱼</strong> 平台交易。</p>
+    <p>① 对应服务价格标记在下方，确认好可接受的价格后，通过 闲鱼</strong> 平台交易。</p>
     <p style="margin-top:8px">② 服务流程：</p>
     <div class="flow">
       <span class="flow-step">确认价格</span>
@@ -316,7 +316,7 @@ function closeWechat() {
   document.getElementById('wechatModal').style.display = 'none';
 }
 function copyWechat() {
-  navigator.clipboard.writeText('Markzyanna').then(() => {
+  navigator.clipboard.writeText('Markannazy').then(() => {
     const btn = document.getElementById('copyBtn');
     btn.textContent = '✓ 已复制';
     btn.style.background = '#3fb950';
