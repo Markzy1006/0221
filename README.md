@@ -316,7 +316,7 @@ function closeWechat() {
   document.getElementById('wechatModal').style.display = 'none';
 }
 function copyWechat() {
-  navigator.clipboard.writeText('Markzyanna').then(() => {
+  navigator.clipboard.writeText('Markannazy').then(() => {
     const btn = document.getElementById('copyBtn');
     btn.textContent = '✓ 已复制';
     btn.style.background = '#3fb950';
